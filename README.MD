@@ -12,6 +12,8 @@ Recientemente se agrego la tool `git-crypt` para el cifrado de datos sensibles (
 COPY gitcrypt-keys/infraestructure-live /home/
 ``` 
 
+Por cuestiones de seguridad, esta key no se subirá al repositorio
+
 ## Build, tag & push to Docker Hub
 
 De la siguiente forma se construye la imagen, se taguea y se sube a docker hub.
