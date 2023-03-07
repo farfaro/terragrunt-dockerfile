@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 RUN apt update
-RUN apt install vim git unzip wget curl -y
+RUN apt install vim git unzip wget curl git-crypt -y
 RUN wget https://releases.hashicorp.com/terraform/1.3.9/terraform_1.3.9_linux_amd64.zip
 RUN unzip terraform_1.3.9_linux_amd64.zip
 RUN mv terraform /usr/local/bin/ 
@@ -18,3 +18,4 @@ RUN ./aws/install
 
 COPY credentials /root/.aws/
 COPY config /root/.aws/
+COPY gitcrypt-keys/infraestructure-live /home/
