@@ -6,6 +6,11 @@ El dockerfile contiene las siguientes tools: git, aws cli v2, terraform, terragr
 El dockerfile llama los archivos 'config' y 'credentials' las cuales corresponden a los archivos de credenciales de AWS. 
 Por motivos de seguridad los mismos no son subidos al repositorio, pero deberan existir en la misma carpeta que el Dockerfile.
 
+Recientemente se agrego la tool `git-crypt` para el cifrado de datos sensibles (credenciales de BD principalmente). En el Dockerfile se copia el secret necesario para hacer el descifrado de archivos cifrados con esta tool. Desde ya que esto es porque en mi caso necesitaba clonar un repositorio (infrastructure-live) donde algunos archivos estan cifrados. En caso de que no sea necesario, comentar o eliminar del Dockerfile lo siguiente:
+
+```bash
+COPY gitcrypt-keys/infraestructure-live /home/
+``` 
 
 ## Build, tag & push to Docker Hub
 
